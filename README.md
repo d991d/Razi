@@ -27,10 +27,12 @@ Razi is a branded, one-click setup built on two excellent open-source tools:
 | File | Platform | What it does |
 |---|---|---|
 | `Setup-Mac.command` | **Mac** | One-click installer for macOS |
-| `Run-Windows.bat` | **Windows** | One-click installer for Windows |
-| `Setup-Windows.ps1` | **Windows** | Install script launched by the .bat |
+| `Run-Windows.bat` | **Windows** | One-click installer for Windows (pure batch — no PowerShell) |
+| `Setup-Windows.ps1` | **Windows** | Optional PowerShell version (see note below) |
 | `README.md` | Everyone | This guide |
 | `LICENSE` | — | MIT License |
+
+> **Windows note:** Use **`Run-Windows.bat`**. It is a plain batch file, so it is **not** affected by PowerShell "execution policy" or *"script is not digitally signed"* errors that appear on locked-down/corporate PCs. The `Setup-Windows.ps1` file is only an optional alternative for users who prefer PowerShell and whose policy allows unsigned scripts.
 
 ---
 
@@ -117,6 +119,7 @@ Everything runs locally. As long as the **LLM Provider** stays **Ollama** (not a
 - **"No relevant information"** → the document wasn't embedded; redo **Move to Workspace → Save and Embed**.
 - **Answers from outside your docs** → switch Chat mode to **Query**.
 - **Installer couldn't download an app** → it opens the official page; install manually, then re-run.
+- **Windows: "script is not digitally signed" / execution policy error** → you ran the PowerShell version on a locked-down PC. Use **`Run-Windows.bat`** instead — it's plain batch and isn't affected by that policy.
 
 ---
 
