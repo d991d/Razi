@@ -28,11 +28,10 @@ Razi is a branded, one-click setup built on two excellent open-source tools:
 |---|---|---|
 | `Setup-Mac.command` | **Mac** | One-click installer for macOS |
 | `Run-Windows.bat` | **Windows** | One-click installer for Windows (pure batch — no PowerShell) |
-| `Setup-Windows.ps1` | **Windows** | Optional PowerShell version (see note below) |
 | `README.md` | Everyone | This guide |
 | `LICENSE` | — | MIT License |
 
-> **Windows note:** Use **`Run-Windows.bat`**. It is a plain batch file, so it is **not** affected by PowerShell "execution policy" or *"script is not digitally signed"* errors that appear on locked-down/corporate PCs. The `Setup-Windows.ps1` file is only an optional alternative for users who prefer PowerShell and whose policy allows unsigned scripts.
+> **Windows note:** The Windows installer is a plain batch file, so it is **not** affected by PowerShell "execution policy" or *"script is not digitally signed"* errors that appear on locked-down/corporate PCs.
 
 ---
 
