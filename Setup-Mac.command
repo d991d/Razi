@@ -24,10 +24,10 @@ CHAT_MODEL="llama3.1"                 # main chat model (see README to change)
 EMBED_MODEL="nomic-embed-text"        # embedding model (multilingual)
 ANYTHINGLLM_PAGE="https://anythingllm.com/download"
 
-# Direct installer URLs. VERIFY these are current before distributing widely.
+# Direct installer URLs (verified from official AnythingLLM docs, 2026-07).
 OLLAMA_DMG_URL="https://ollama.com/download/Ollama.dmg"
 OLLAMA_ZIP_URL="https://ollama.com/download/Ollama-darwin.zip"
-ALLM_SILICON_URL="https://cdn.anythingllm.com/latest/AnythingLLMDesktop-AppleSilicon.dmg"
+ALLM_SILICON_URL="https://cdn.anythingllm.com/latest/AnythingLLMDesktop-Silicon.dmg"
 ALLM_INTEL_URL="https://cdn.anythingllm.com/latest/AnythingLLMDesktop.dmg"
 # =============================================================================
 
@@ -101,6 +101,14 @@ else
     cp -R "$MNT2/"*.app /Applications/ 2>/dev/null
     hdiutil detach "$MNT2" >/dev/null 2>&1
     echo "    Installed."
+  elif command -v brew >/dev/null 2>&1; then
+    echo "    Direct download failed. Trying Homebrew..."
+    if brew install --cask anythingllm; then
+      echo "    Installed via Homebrew."
+    else
+      echo "    !! Could not install automatically. Opening the download page..."
+      open "$ANYTHINGLLM_PAGE"
+    fi
   else
     echo "    !! Could not auto-download the app. Opening the download page..."
     open "$ANYTHINGLLM_PAGE"

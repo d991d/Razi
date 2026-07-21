@@ -19,9 +19,13 @@ REM ============================ CONFIG =================================
 set "CHAT_MODEL=llama3.1"
 set "EMBED_MODEL=nomic-embed-text"
 set "OLLAMA_URL=https://ollama.com/download/OllamaSetup.exe"
+REM AnythingLLM URLs verified from official docs (2026-07).
 set "ALLM_URL=https://cdn.anythingllm.com/latest/AnythingLLMDesktop.exe"
+set "ALLM_ARM_URL=https://cdn.anythingllm.com/latest/AnythingLLMDesktop-Arm64.exe"
 set "ALLM_PAGE=https://anythingllm.com/download"
 set "WORK=%TEMP%\razi-setup"
+REM Use the ARM64 build on ARM PCs
+if /I "%PROCESSOR_ARCHITECTURE%"=="ARM64" set "ALLM_URL=%ALLM_ARM_URL%"
 REM ====================================================================
 
 echo ==================================================
